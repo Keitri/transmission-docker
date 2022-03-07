@@ -1,0 +1,19 @@
+version: "2.1"
+services:
+  app:
+    image: lscr.io/linuxserver/transmission
+    restart: always
+    container_name: transmission
+    environment:
+      - TRANSMISSION_WEB_HOME=/transmission-web-control/
+    volumes:
+      - ./config:/config
+      - ./downloads:/downloads
+      - /home/zero/Akin2/Movies:/downloads/Movies
+      - /home/zero/Akin2/Anime:/downloads/Anime
+      - /home/zero/Akin2/Series:/downloads/Series
+      - ./watch:/watch
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
